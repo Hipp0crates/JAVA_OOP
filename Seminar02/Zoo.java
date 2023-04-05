@@ -51,6 +51,15 @@ public class Zoo {
         return res;
     }
 
+    private List<Floatable> swimmers() {
+        List<Floatable> res = new ArrayList<>();
+        for (Animal item : animals) {
+            if (item instanceof Floatable)
+                res.add((Floatable) item);
+        }
+        return res;
+    }
+
     public Animal fastestRun() {
         List<Walkable> list = runners();
         Walkable champ = list.get(0);
@@ -67,6 +76,17 @@ public class Zoo {
         Flyable champ = list.get(0);
         for (Flyable item : list) {
             if (champ.flySpeed() < item.flySpeed()) {
+                champ = item;
+            }
+        }
+        return (Animal) champ;
+    }
+
+    public Animal fastestSwim() {
+        List<Floatable> list = swimmers();
+        Floatable champ = list.get(0);
+        for (Floatable item : list) {
+            if (champ.floatSpeed() < item.floatSpeed()) {
                 champ = item;
             }
         }

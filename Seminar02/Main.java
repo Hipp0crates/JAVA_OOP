@@ -11,6 +11,8 @@ public class Main {
         zoo.add(new Bat("Микки"));
         zoo.add(new Flyingsquirrel("Чума"));
         zoo.add(new Bear("Косолап", 59));
+        zoo.add(new Shark("Жора", 19));
+        zoo.add(new Shark("Обжора", 18));
 
         zoo.noise();
         System.out.println();
@@ -21,5 +23,8 @@ public class Main {
         System.out.println();
         System.out.println("Быстрейший летун");
         System.out.println(zoo.fastestFly());
+        System.out.println();
+        System.out.println("Быстрейший плывун");
+        System.out.println(zoo.fastestSwim());
     }
 }
