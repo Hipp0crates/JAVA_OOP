@@ -9,7 +9,8 @@ public class Product {
         return name;
     }
 
-    private void setName(String name) {
+    // vscode ругается на private, так что просто убрал public
+    void setName(String name) {
         this.name = name;
     }
 
