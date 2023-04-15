@@ -1,0 +1,31 @@
+package JAVA_OOP.Seminar04;
+
+import java.util.Random;
+
+public abstract class Fighter<T extends Weapon> extends Personage {
+    protected static Random random = new Random();
+    protected T weapon;
+
+    public Fighter(String name, int hp, T weapon) {
+        super(name, hp);
+        this.weapon = weapon;
+    }
+
+    public int dealingDamage() {
+        boolean isHit = random.nextBoolean();
+        int damage = 0;
+        if (isHit) {
+            damage = random.nextInt(weapon.damage() + 1);
+        }
+        return damage;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        res.append(" ").append(this.getName()).append("\n")
+                .append("\t Здоровье: ").append(getHp()).append("\n")
+                .append("\t Оружие: ").append(this.weapon);
+        return res.toString();
+    }
+}
