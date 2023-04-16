@@ -6,4 +6,6 @@ public interface Repository {
     List<User> getAllUsers();
 
     String CreateUser(User user);
+
+    void UpdateUser(User user);
 }

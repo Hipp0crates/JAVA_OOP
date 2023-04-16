@@ -35,11 +35,27 @@ public class RepositoryFile implements Repository {
         String id = String.format("%d", newId);
         user.setId(id);
         users.add(user);
+        saveUser(users);
+        return id;
+    }
+
+    private void saveUser(List<User> users) {
         List<String> lines = new ArrayList<>();
         for (User item : users) {
             lines.add(mapper.map(item));
         }
         fileOperation.saveAllLines(lines);
-        return id;
+    }
+
+    public void UpdateUser(User user) {
+        List<User> users = getAllUsers();
+        for (User item : users) {
+            if (item.getId().equals(user.getId())) {
+                item.setFirstName(user.getFirstName());
+                item.setLastName(user.getLastName());
+                item.setPhone(user.getPhone());
+            }
+        }
+        saveUser(users);
     }
 }

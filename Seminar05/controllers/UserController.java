@@ -6,6 +6,7 @@ import JAVA_OOP.Seminar05.model.User;
 import java.util.List;
 
 public class UserController {
+    private final Validation valid = new Validation();
     private final Repository repository;
 
     public UserController(Repository repository) {
@@ -13,6 +14,7 @@ public class UserController {
     }
 
     public void saveUser(User user) {
+        valid.validate(user);
         repository.CreateUser(user);
     }
 
@@ -24,5 +26,14 @@ public class UserController {
             }
         }
         throw new Exception("User not found");
+    }
+
+    public List<User> allUsers() {
+        return repository.getAllUsers();
+    }
+
+    public void updateUser(User user) {
+        valid.validate(user);
+        repository.UpdateUser(user);
     }
 }
