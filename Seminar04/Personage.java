@@ -3,10 +3,12 @@ package JAVA_OOP.Seminar04;
 public abstract class Personage {
     private String name;
     private int hp;
+    protected Block block;
 
-    public Personage(String name, int hp) {
+    public Personage(String name, int hp, Block block) {
         this.name = name;
         this.hp = hp;
+        this.block = block;
     }
 
     public String getName() {
@@ -22,9 +24,14 @@ public abstract class Personage {
     }
 
     public void reduceHP(int damage) {
-        this.hp -= damage;
-        if (this.hp < 0) {
-            this.hp = 0;
+        if (this.block.isBlock()) {
+            this.hp -= 0;
+            System.out.print("(блок) ");
+        } else {
+            this.hp -= damage;
+            if (this.hp < 0) {
+                this.hp = 0;
+            }
         }
     }
 
