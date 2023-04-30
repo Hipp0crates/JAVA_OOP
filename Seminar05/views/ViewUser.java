@@ -35,6 +35,9 @@ public class ViewUser {
                     case UPDATE:
                         update();
                         break;
+                    case DELETE:
+                        delete();
+                        break;
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -70,7 +73,17 @@ public class ViewUser {
         List<User> all = userController.allUsers();
         for (User user : all) {
             System.out.println(user);
-            System.out.println();
+        }
+    }
+
+    private void delete() throws Exception {
+        String id = prompt("Идентификатор пользователя: ");
+        User user = userController.readUser(id);
+        System.out.println(user.getFirstName() + " " + user.getLastName() + " удалён");
+        try {
+            userController.deleteUser(id);
+        } catch (RuntimeException e) {
+            System.out.print("");
         }
     }
 
