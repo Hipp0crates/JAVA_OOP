@@ -16,4 +16,9 @@ public class ReportItem {
     public float getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return "console " + description + " - " + amount;
+    }
 }
