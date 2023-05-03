@@ -1,6 +1,6 @@
 package JAVA_OOP.Seminar06.HomeWork;
 
-public class Persister {
+public class Persister implements Saveable {
     private User user;
 
     public Persister(User user) {
