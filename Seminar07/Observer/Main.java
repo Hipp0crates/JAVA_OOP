@@ -10,8 +10,10 @@ public class Main {
         Company geekBrains = new Company(jobAgency, "GeekBrains", 100);
         Student petrov = new Student("Petrov");
         Master ivanov = new Master("Ivanov");
+        Middle sidirov = new Middle("Sidorov");
         jobAgency.registerObserver(petrov);
         jobAgency.registerObserver(ivanov);
+        jobAgency.registerObserver(sidirov);
 
         for (int i = 0; i < 10; i++) {
             google.needEmpoyee();
